@@ -153,8 +153,8 @@ class SettingsDialog(tk.Toplevel):
     """API 키 설정 다이얼로그"""
     def __init__(self, parent, client_id="", client_secret=""):
         super().__init__(parent)
-        self.title("⚙️ API 키 설정")
-        self.geometry("500x280")
+        self.title("API Key Settings")
+        self.geometry("500x320")
         self.resizable(False, False)
         self.transient(parent)
         self.grab_set()
@@ -195,10 +195,11 @@ class SettingsDialog(tk.Toplevel):
 
         # 버튼
         btn_frame = ttk.Frame(self, padding="15")
-        btn_frame.pack(fill=tk.X)
+        btn_frame.pack(fill=tk.X, side=tk.BOTTOM)
 
-        ttk.Button(btn_frame, text="저장", command=self.save).pack(side=tk.RIGHT, padx=5)
-        ttk.Button(btn_frame, text="취소", command=self.destroy).pack(side=tk.RIGHT)
+        save_btn = ttk.Button(btn_frame, text="Save", command=self.save)
+        save_btn.pack(side=tk.RIGHT, padx=5)
+        ttk.Button(btn_frame, text="Cancel", command=self.destroy).pack(side=tk.RIGHT)
 
         self.id_entry.focus()
 
