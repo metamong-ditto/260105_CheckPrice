@@ -154,7 +154,7 @@ class SettingsDialog(tk.Toplevel):
     def __init__(self, parent, client_id="", client_secret=""):
         super().__init__(parent)
         self.title("API Key Settings")
-        self.geometry("500x320")
+        self.geometry("550x400")
         self.resizable(False, False)
         self.transient(parent)
         self.grab_set()
@@ -218,7 +218,7 @@ class SettingsDialog(tk.Toplevel):
 class PriceFinderApp:
     def __init__(self, root):
         self.root = root
-        self.root.title("🛒 상품 최저가 검색기")
+        self.root.title("🛒 상품 최저가 검색기 - MADE BY YEHA")
         self.root.geometry("900x650")
         self.root.minsize(800, 500)
 
