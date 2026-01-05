@@ -254,7 +254,17 @@ def main():
     if len(sys.argv) > 1:
         query = " ".join(sys.argv[1:])
     else:
-        query = input("검색할 상품명을 입력하세요: ").strip()
+        # stdin이 없는 환경 처리
+        if sys.stdin is None or not sys.stdin.isatty():
+            print("사용법: python price_finder.py [상품명]")
+            print("예시: python price_finder.py 신라면")
+            sys.exit(1)
+        try:
+            query = input("검색할 상품명을 입력하세요: ").strip()
+        except (EOFError, RuntimeError):
+            print("사용법: python price_finder.py [상품명]")
+            print("예시: python price_finder.py 신라면")
+            sys.exit(1)
 
     if not query:
         print("상품명을 입력해주세요.")
